@@ -9,6 +9,11 @@ export default function Home({ allPostsData }) {
 		<Layout home>
 			<Head>
 				<title>{siteTitle}</title>
+				<script
+					async
+					defer
+					src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-Ni8YpfTdT53Jv5_pt1fuBe9VIN_qnVw&callback"
+				/>
 			</Head>
 			<section className={utilStyles.headingMd}>
 				<p>[Your Self Introduction]</p>
@@ -41,6 +46,14 @@ import { getSortedPostsData } from "../lib/posts";
 
 export async function getStaticProps() {
 	const allPostsData = getSortedPostsData();
+
+	// var res = await fetch(
+	// 	"https://maps.googleapis.com/maps/api/js?key=AIzaSyA-Ni8YpfTdT53Jv5_pt1fuBe9VIN_qnVw&callback=initMap"
+	// );
+	// var json = await res.json();
+	// const data = JSON.stringify(json);
+	// console.log("data ", res);
+
 	return {
 		props: {
 			allPostsData,
